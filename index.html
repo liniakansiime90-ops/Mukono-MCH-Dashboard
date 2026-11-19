@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukono MCH Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Lesson 16: Supabase login interface -->
+<section id="login-section" class="login-section">
+    <h2>Mukono MCH Dashboard Login</h2>
+
+    <p>Sign in using your authorised dashboard account.</p>
+
+    <form id="login-form">
+        <label for="login-email">Email address</label>
+        <input
+            type="email"
+            id="login-email"
+            required
+            autocomplete="username"
+        >
+
+        <label for="login-password">Password</label>
+        <input
+            type="password"
+            id="login-password"
+            required
+            autocomplete="current-password"
+        >
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <p id="login-message" role="status" aria-live="polite"></p>
+    <button id="logout-button" type="button" hidden>
+    Sign Out
+</button>
+</section>
+
+<!-- Protected dashboard content -->
+<div id="dashboard-content" hidden>
+    <h1>Maternal and Child Health Dashboard</h1>
+
+    <h2>Mukono District, Uganda</h2>
+
+    <p>Welcome to our Maternal and Child Health Monitoring Dashboard.</p>
+
+    <p>This dashboard will help health managers monitor maternal and child health indicators.</p>
+
+    <h3>Our Six Health Indicators</h3>
+
+   
+<div class="dashboard-grid">
+
+<!-- Health Facility Filter -->
+<div class="filter-section">
+    <label for="facility-filter">Select Health Facility:</label>
+
+    <select id="facility-filter">
+        <option value="all">All Six Selected Facilities </option>
+    </select>
+
+<!-- Reporting Month Filter -->
+<label for="month-filter">Select Reporting Month:</label>
+
+<select id="month-filter">
+    <option value="all">All Available Months</option>
+</select>
+
+</div>
+
+<!-- Lesson 14: Export aggregated indicators -->
+<div class="export-section">
+    <button id="download-csv" type="button">
+        Download Indicator Report (CSV)
+    </button>
+</div>
+
+
+    <div class="indicator-card">
+        <h3>ANC4+ Coverage</h3>
+        <p class="indicator-value" id="anc-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+    <div class="indicator-card">
+        <h3>Facility Delivery Coverage</h3>
+        <p class="indicator-value" id="delivery-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+    <div class="indicator-card">
+        <h3>Penta 3 Coverage</h3>
+        <p class="indicator-value" id="penta3-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+    <div class="indicator-card">
+        <h3>Penta Dropout Rate</h3>
+        <p class="indicator-value" id="dropout-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+    <div class="indicator-card">
+        <h3>PNC Within 48 Hours</h3>
+       <p class="indicator-value" id="pnc-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+    <div class="indicator-card">
+        <h3>Low Birth Weight</h3>
+        <p class="indicator-value" id="lbw-value">--</p>
+        <p class="indicator-note">Example data</p>
+    </div>
+
+</div>
+
+    <p>Project developed for academic purposes using synthetic health data.</p>
+
+<!-- Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+
+<!-- Our dashboard JavaScript -->
+<script src="script.js"></script>
+
+<script src="lesson13.js" defer></script>
+
+<script src="export.js"></script>
+
+<script src="reference.js" defer></script>
+
+
+
+<!-- Lesson 10: Six health indicator charts -->
+<section class="charts-section">
+    <h2>Maternal and Child Health Visualisations</h2>
+
+    <p>
+        Synthetic demonstration data from selected
+        Mukono District health facilities.
+    </p>
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+            <h3>ANC4+ Coverage</h3>
+            <canvas id="anc-chart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Facility Delivery Coverage</h3>
+            <canvas id="delivery-chart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Penta 3 Coverage</h3>
+            <canvas id="penta3-chart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Penta Dropout Rate</h3>
+            <canvas id="dropout-chart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>PNC Within 48 Hours</h3>
+            <canvas id="pnc-chart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Low Birth Weight</h3>
+            <canvas id="lbw-chart"></canvas>
+        </div>
+
+    </div>
+</section>
+
+<!-- Lesson 12: Monthly trend analysis -->
+<section class="trends-section">
+    <h2>Monthly Maternal and Child Health Trends</h2>
+
+    <p>
+        Trends across January to March 2026.
+        All figures are synthetic demonstration data.
+    </p>
+
+    <div class="chart-card">
+        <h3>Monthly Indicator Trends</h3>
+
+        <label for="trend-indicator">
+            Select Indicator:
+        </label>
+
+        <select id="trend-indicator">
+            <option value="anc">ANC4+ Coverage</option>
+            <option value="delivery">Facility Delivery Coverage</option>
+            <option value="penta3">Penta 3 Coverage</option>
+            <option value="dropout">Penta Dropout Rate</option>
+            <option value="pnc">PNC Within 48 Hours</option>
+            <option value="lbw">Low Birth Weight</option>
+        </select>
+
+        <div class="trend-chart-container">
+            <canvas id="trend-chart"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- Lesson 12: Data quality summary -->
+<section class="quality-section">
+    <h2>Data Quality Summary</h2>
+
+    <p id="quality-summary">
+        Checking the dataset...
+    </p>
+</section>
+
+
+<!-- Lesson 13: Data Sources and Threshold Review -->
+<section class="integration-section">
+
+    <h2>Data Sources and Threshold Review</h2>
+
+    <p>
+        Demonstration facility information and illustrative
+        indicator thresholds. These are not official
+        Ministry of Health performance targets.
+    </p>
+
+    <p id="integration-status" role="status">
+        Loading and checking data...
+    </p>
+
+    <p id="facility-context"></p>
+
+    <div class="table-scroll">
+        <table>
+            <caption>
+                Indicator performance against demonstration thresholds
+            </caption>
+
+            <thead>
+                <tr>
+                    <th scope="col">Indicator</th>
+                    <th scope="col">Actual</th>
+                    <th scope="col">Demo Threshold</th>
+                    <th scope="col">Denominator</th>
+                    <th scope="col">Assessment</th>
+                </tr>
+            </thead>
+
+            <tbody id="threshold-results"></tbody>
+        </table>
+    </div>
+
+</section>
+
+
+<!-- Lesson 15: National and Mukono Reference Data -->
+<section class="reference-section">
+
+    <h2>National and Mukono Health Reference Data</h2>
+
+    <p>
+        Published health statistics for context.
+        These figures are separate from the synthetic
+        facility data used in this dashboard.
+    </p>
+
+    <div id="reference-status">
+        Loading reference data...
+    </div>
+
+    <div id="reference-cards" class="reference-grid"></div>
+
+</section>
+</div> <!-- End of protected dashboard content -->
+<!-- Closing tags for the webpage -->
+
+<!-- Lesson 16: Supabase authentication library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+<!-- Our Supabase connection -->
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+
+</body>
+</html>
+
+

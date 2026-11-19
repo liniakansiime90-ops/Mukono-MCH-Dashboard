@@ -1,0 +1,7 @@
+code,label,direction,threshold
+anc,ANC4+ Coverage,minimum,80
+delivery,Facility Delivery Coverage,minimum,85
+penta3,Penta 3 Coverage,minimum,90
+dropout,Penta Dropout Rate,maximum,10
+pnc,PNC Within 48 Hours,minimum,85
+lbw,Low Birth Weight,maximum,10
